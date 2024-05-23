@@ -57,3 +57,13 @@ func MustStr2DayTime(s string) (t time.Time) {
 	t, _ = time.ParseInLocation(DAYTIME_FORMAT, s, time.Local)
 	return t
 }
+
+func MustStr2TimestampInt64(s string) int64 {
+	t, _ := time.ParseInLocation(DAYTIME_FORMAT, s, time.Local)
+	return t.Unix()
+}
+
+func MustTimestampInt642TimeStr(ts int64) string {
+	t := time.Unix(ts, 0).Format(DAYTIME_FORMAT)
+	return t
+}
